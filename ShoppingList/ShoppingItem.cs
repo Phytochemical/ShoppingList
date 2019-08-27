@@ -74,9 +74,38 @@ namespace ShoppingList
             }
         }
 
-        public double Amount
+        public double AmountQuantity
         {
-            get
+            get { return amountQuantity; }
+
+            set
+            {
+                if (value >= 0)
+                {
+                    amountQuantity = value;
+                }
+            }
+        }
+
+        public UnitTypes Unit
+        {
+            get { return unit; }
+
+            set
+            {
+                if (Enum.IsDefined ( typeof(UnitTypes), value) )
+            {
+                    unit = value;
+                }
+            }
+        }
+
+        public override string ToString()
+        {
+            string textOut = string.Empty;
+            textOut = $"{description,-45} {amountQuantity,6:f2} {unit,-6}";
+
+            return textOut;
         }
     }
 }
