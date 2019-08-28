@@ -46,6 +46,7 @@ namespace ShoppingList
             if (itemIn != null)
             {
                 itemList.Add(itemIn);
+                Console.Out.WriteLine(itemIn);
                 isItemValid = true;
             }
 
@@ -107,6 +108,7 @@ namespace ShoppingList
             {
                 stringInfoStrings[index] = item.ToString();
                 index++;
+                Console.Out.WriteLine(stringInfoStrings[0]);
             }
             return stringInfoStrings;
         }
