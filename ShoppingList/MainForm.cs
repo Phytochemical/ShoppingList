@@ -63,7 +63,15 @@ namespace ShoppingList
 
         private void buttonChange_Click(object sender, EventArgs e)
         {
+            bool isInputValid = false;
 
+            ShoppingItem myShoppingitem = ReadInput(out isInputValid);
+
+            if(isInputValid)
+            {
+                myItemManager.ChangeItem(myShoppingitem, 0);
+                updateGUI();
+            }
         }
 
         private ShoppingItem ReadInput(out bool isInputValid)
