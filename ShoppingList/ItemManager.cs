@@ -101,9 +101,9 @@ namespace ShoppingList
         /// <returns></returns>
         public string[] GetItemsInfoStrings()
         {
-            int index = 0;
             string[] stringInfoStrings = new string[itemList.Count];
 
+            int index = 0;
             foreach (ShoppingItem item in itemList)
             {
                 stringInfoStrings[index] = item.ToString();

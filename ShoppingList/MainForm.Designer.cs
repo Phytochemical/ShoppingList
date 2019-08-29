@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.groupBoxInput = new System.Windows.Forms.GroupBox();
-            this.comboBoxDropdown = new System.Windows.Forms.ComboBox();
+            this.comboBox = new System.Windows.Forms.ComboBox();
             this.textBoxAmount = new System.Windows.Forms.TextBox();
             this.labelAmount = new System.Windows.Forms.Label();
             this.textBoxDescription = new System.Windows.Forms.TextBox();
             this.labelDescription = new System.Windows.Forms.Label();
             this.buttonAdd = new System.Windows.Forms.Button();
-            this.listBoxShoppingList = new System.Windows.Forms.ListBox();
+            this.listShoppingItems = new System.Windows.Forms.ListBox();
             this.buttonChange = new System.Windows.Forms.Button();
             this.buttonDelete = new System.Windows.Forms.Button();
             this.groupBoxInput.SuspendLayout();
@@ -43,27 +43,27 @@
             // 
             // groupBoxInput
             // 
-            this.groupBoxInput.Controls.Add(this.comboBoxDropdown);
+            this.groupBoxInput.Controls.Add(this.comboBox);
             this.groupBoxInput.Controls.Add(this.textBoxAmount);
             this.groupBoxInput.Controls.Add(this.labelAmount);
             this.groupBoxInput.Controls.Add(this.textBoxDescription);
             this.groupBoxInput.Controls.Add(this.labelDescription);
             this.groupBoxInput.Location = new System.Drawing.Point(14, 13);
             this.groupBoxInput.Name = "groupBoxInput";
-            this.groupBoxInput.Size = new System.Drawing.Size(338, 100);
+            this.groupBoxInput.Size = new System.Drawing.Size(284, 100);
             this.groupBoxInput.TabIndex = 0;
             this.groupBoxInput.TabStop = false;
             this.groupBoxInput.Text = "Input";
             // 
-            // comboBoxDropdown
+            // comboBox
             // 
-            this.comboBoxDropdown.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxDropdown.FormattingEnabled = true;
-            this.comboBoxDropdown.Location = new System.Drawing.Point(196, 55);
-            this.comboBoxDropdown.Name = "comboBoxDropdown";
-            this.comboBoxDropdown.Size = new System.Drawing.Size(121, 21);
-            this.comboBoxDropdown.TabIndex = 4;
-            this.comboBoxDropdown.SelectedIndexChanged += new System.EventHandler(this.comboBoxDropdown_SelectedIndexChanged);
+            this.comboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox.FormattingEnabled = true;
+            this.comboBox.Location = new System.Drawing.Point(196, 58);
+            this.comboBox.Name = "comboBox";
+            this.comboBox.Size = new System.Drawing.Size(71, 21);
+            this.comboBox.TabIndex = 4;
+            this.comboBox.SelectedIndexChanged += new System.EventHandler(this.comboBox_SelectedIndexChanged);
             // 
             // textBoxAmount
             // 
@@ -86,7 +86,7 @@
             // 
             this.textBoxDescription.Location = new System.Drawing.Point(74, 20);
             this.textBoxDescription.Name = "textBoxDescription";
-            this.textBoxDescription.Size = new System.Drawing.Size(242, 20);
+            this.textBoxDescription.Size = new System.Drawing.Size(193, 20);
             this.textBoxDescription.TabIndex = 1;
             this.textBoxDescription.TextChanged += new System.EventHandler(this.c_TextChanged);
             // 
@@ -101,7 +101,7 @@
             // 
             // buttonAdd
             // 
-            this.buttonAdd.Location = new System.Drawing.Point(364, 28);
+            this.buttonAdd.Location = new System.Drawing.Point(304, 28);
             this.buttonAdd.Name = "buttonAdd";
             this.buttonAdd.Size = new System.Drawing.Size(114, 23);
             this.buttonAdd.TabIndex = 1;
@@ -109,30 +109,30 @@
             this.buttonAdd.UseVisualStyleBackColor = true;
             this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
             // 
-            // listBoxShoppingList
+            // listShoppingItems
             // 
-            this.listBoxShoppingList.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listBoxShoppingList.FormattingEnabled = true;
-            this.listBoxShoppingList.ItemHeight = 14;
-            this.listBoxShoppingList.Location = new System.Drawing.Point(12, 119);
-            this.listBoxShoppingList.Name = "listBoxShoppingList";
-            this.listBoxShoppingList.Size = new System.Drawing.Size(494, 242);
-            this.listBoxShoppingList.TabIndex = 2;
-            this.listBoxShoppingList.Visible = false;
-            this.listBoxShoppingList.SelectedIndexChanged += new System.EventHandler(this.listBoxShoppingList_SelectedIndexChanged);
+            this.listShoppingItems.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listShoppingItems.FormattingEnabled = true;
+            this.listShoppingItems.ItemHeight = 14;
+            this.listShoppingItems.Location = new System.Drawing.Point(12, 128);
+            this.listShoppingItems.Name = "listShoppingItems";
+            this.listShoppingItems.Size = new System.Drawing.Size(404, 186);
+            this.listShoppingItems.TabIndex = 2;
+            this.listShoppingItems.SelectedIndexChanged += new System.EventHandler(this.listShoppingItems_SelectedIndexChanged);
             // 
             // buttonChange
             // 
-            this.buttonChange.Location = new System.Drawing.Point(364, 57);
+            this.buttonChange.Location = new System.Drawing.Point(304, 57);
             this.buttonChange.Name = "buttonChange";
             this.buttonChange.Size = new System.Drawing.Size(114, 23);
             this.buttonChange.TabIndex = 3;
             this.buttonChange.Text = "Change";
             this.buttonChange.UseVisualStyleBackColor = true;
+            this.buttonChange.Click += new System.EventHandler(this.buttonChange_Click);
             // 
             // buttonDelete
             // 
-            this.buttonDelete.Location = new System.Drawing.Point(364, 86);
+            this.buttonDelete.Location = new System.Drawing.Point(304, 86);
             this.buttonDelete.Name = "buttonDelete";
             this.buttonDelete.Size = new System.Drawing.Size(114, 23);
             this.buttonDelete.TabIndex = 4;
@@ -143,10 +143,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(519, 397);
+            this.ClientSize = new System.Drawing.Size(432, 342);
             this.Controls.Add(this.buttonDelete);
             this.Controls.Add(this.buttonChange);
-            this.Controls.Add(this.listBoxShoppingList);
+            this.Controls.Add(this.listShoppingItems);
             this.Controls.Add(this.buttonAdd);
             this.Controls.Add(this.groupBoxInput);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -165,10 +165,10 @@
         private System.Windows.Forms.Label labelAmount;
         private System.Windows.Forms.TextBox textBoxDescription;
         private System.Windows.Forms.Label labelDescription;
-        private System.Windows.Forms.ComboBox comboBoxDropdown;
+        private System.Windows.Forms.ComboBox comboBox;
         private System.Windows.Forms.TextBox textBoxAmount;
         private System.Windows.Forms.Button buttonAdd;
-        private System.Windows.Forms.ListBox listBoxShoppingList;
+        private System.Windows.Forms.ListBox listShoppingItems;
         private System.Windows.Forms.Button buttonChange;
         private System.Windows.Forms.Button buttonDelete;
     }

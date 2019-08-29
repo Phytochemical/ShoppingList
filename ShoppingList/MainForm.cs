@@ -23,15 +23,14 @@ namespace ShoppingList
 
         private void InitializeGUI()
         {
-            comboBoxDropdown.Items.AddRange(Enum.GetNames(typeof(UnitTypes) ) );
-
-            comboBoxDropdown.SelectedIndex = (int)UnitTypes.piece;
+            comboBox.Items.AddRange( Enum.GetNames (typeof(UnitTypes) ) );
+            comboBox.SelectedIndex = (int)UnitTypes.piece;
         }
 
         private void updateGUI()
         {
-            listBoxShoppingList.Items.Clear();
-            listBoxShoppingList.Items.AddRange(myItemManager.GetItemsInfoStrings() );
+            listShoppingItems.Items.Clear();
+            listShoppingItems.Items.AddRange( myItemManager.GetItemsInfoStrings() );
             //string[] itemStrings = myItemManager.GetItemsInfoStrings();
 
             //if (itemStrings != null)
@@ -62,6 +61,11 @@ namespace ShoppingList
             }
         }
 
+        private void buttonChange_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private ShoppingItem ReadInput(out bool isInputValid)
         {
             isInputValid = false;
@@ -75,7 +79,7 @@ namespace ShoppingList
                 return null;
             }
 
-            myShoppingitem.AmountQuantity = ReadAmount(out isInputValid);
+            myShoppingitem.Amount = ReadAmount(out isInputValid);
 
             if(!isInputValid)
             {
@@ -95,6 +99,7 @@ namespace ShoppingList
             if ( !double.TryParse(textBoxAmount.Text, out amount) )
             {
                 GiveMessage("Incorrect amount");
+
                 textBoxAmount.Focus();
                 textBoxAmount.SelectionStart = 0;
                 textBoxAmount.SelectionLength = textBoxAmount.TextLength;
@@ -111,10 +116,10 @@ namespace ShoppingList
             isInputValid = false;
             UnitTypes myUnit = UnitTypes.lb;
 
-            if (comboBoxDropdown.SelectedIndex >= 0)
+            if (comboBox.SelectedIndex >= 0)
             {
                 isInputValid = true;
-                myUnit = (UnitTypes)comboBoxDropdown.SelectedIndex;
+                myUnit = (UnitTypes)comboBox.SelectedIndex;
             }
             else
             {
@@ -146,22 +151,22 @@ namespace ShoppingList
             return text;
         }
 
-        private void listBoxShoppingList_SelectedIndexChanged(object sender, EventArgs e)
+        private void listShoppingItems_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (listBoxShoppingList.SelectedIndex < 0)
+            if (listShoppingItems.SelectedIndex < 0)
             {
                 return;
             }
 
-            ShoppingItem myShoppingItem = myItemManager.GetItem(listBoxShoppingList.SelectedIndex);
+            ShoppingItem myShoppingItem = myItemManager.GetItem(listShoppingItems.SelectedIndex);
 
-            textBoxAmount.Text = myShoppingItem.AmountQuantity.ToString();
+            textBoxAmount.Text = myShoppingItem.Amount.ToString();
             textBoxAmount.Text = myShoppingItem.Description;
-            listBoxShoppingList.SelectedIndex = (int)myShoppingItem.Unit;
+            listShoppingItems.SelectedIndex = (int)myShoppingItem.Unit;
 
         }
 
-        private void comboBoxDropdown_SelectedIndexChanged(object sender, EventArgs e)
+        private void comboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

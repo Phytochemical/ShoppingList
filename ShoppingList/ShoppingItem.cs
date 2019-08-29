@@ -16,7 +16,7 @@ namespace ShoppingList
     class ShoppingItem
     {
         private string description;
-        private double amountQuantity;
+        private double amount;
         private UnitTypes unit;
 
         /// <summary>
@@ -29,26 +29,25 @@ namespace ShoppingList
         }
 
         /// <summary>
-        /// initiate the ofject
-        /// </summary>
-        /// <param name="name">Input, item description</param>
-        /// <param name="amountQuantity">Input, item amount or quanitity</param>
-        /// <param name="unit">Input, unit type</param>
-        public ShoppingItem(string name, double amountQuantity, UnitTypes unit)
-        {
-            this.description = name;
-            this.amountQuantity = this.amountQuantity;
-            this.unit = unit;
-        }
-
-
-        /// <summary>
         /// ShoppingItem myItem = new ShoppingItem("Apple");
         /// </summary>
         /// <param name="description"></param>
-        public ShoppingItem(string description): this(description, 1.0, UnitTypes.piece)
+        public ShoppingItem(string description) : this(description, 1.0, UnitTypes.piece)
         {
 
+        }
+
+        /// <summary>
+        /// initiate the ofject
+        /// </summary>
+        /// <param name="name">Input, item description</param>
+        /// <param name="amount">Input, item amount or quanitity</param>
+        /// <param name="unit">Input, unit type</param>
+        public ShoppingItem(string name, double amount, UnitTypes unit)
+        {
+            this.description = name;
+            this.amount = amount;
+            this.unit = unit;
         }
 
         /// <summary>
@@ -58,7 +57,7 @@ namespace ShoppingList
         public ShoppingItem(ShoppingItem theOtherShoppingItem)
         {
             description = theOtherShoppingItem.description;
-            amountQuantity = theOtherShoppingItem.amountQuantity;
+            amount = theOtherShoppingItem.amount;
             unit = theOtherShoppingItem.unit;
         }
 
@@ -74,15 +73,15 @@ namespace ShoppingList
             }
         }
 
-        public double AmountQuantity
+        public double Amount
         {
-            get { return amountQuantity; }
+            get { return amount; }
 
             set
             {
                 if (value >= 0)
                 {
-                    amountQuantity = value;
+                    amount = value;
                 }
             }
         }
@@ -94,7 +93,7 @@ namespace ShoppingList
             set
             {
                 if (Enum.IsDefined ( typeof(UnitTypes), value) )
-            {
+                {
                     unit = value;
                 }
             }
@@ -103,7 +102,8 @@ namespace ShoppingList
         public override string ToString()
         {
             string textOut = string.Empty;
-            textOut = $"{description,-45} {amountQuantity,6:f2} {unit,-6}";
+
+            textOut = $"{description, -45} {amount, 6:f2} {unit, -6}";
 
             return textOut;
         }
